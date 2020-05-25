@@ -31,14 +31,14 @@ void startboard(char board[][9], int n)
                 board[i][7] = 'g';
                 board[i][8] = 'h';
             }
-            
+
             if (i == 8 - 7)
                 board[i][j] = 'p';
-            if (i == 8 - 8 && j == 1 || i == 8 - 8 && j == 8)
+            if ((i == 8 - 8 && j == 1) || (i == 8 - 8 && j == 8))
                 board[i][j] = 'r';
-            if (i == 8 - 8 && j == 2 || i == 8 - 8 && j == 7)
+            if ((i == 8 - 8 && j == 2) || (i == 8 - 8 && j == 7))
                 board[i][j] = 'n';
-            if (i == 8 - 8 && j == 3 || i == 8 - 8 && j == 6)
+            if ((i == 8 - 8 && j == 3) || (i == 8 - 8 && j == 6))
                 board[i][j] = 'b';
             if (i == 8 - 8 && j == 4)
                 board[i][j] = 'q';
@@ -47,11 +47,11 @@ void startboard(char board[][9], int n)
 
             if (i == 8 - 2)
                 board[i][j] = 'P';
-            if (i == 8 - 1 && j == 1 || i == 8 - 1 && j == 8)
+            if ((i == 8 - 1 && j == 1) || (i == 8 - 1 && j == 8))
                 board[i][j] = 'R';
-            if (i == 8 - 1 && j == 2 || i == 8 - 1 && j == 7)
+            if ((i == 8 - 1 && j == 2) || (i == 8 - 1 && j == 7))
                 board[i][j] = 'N';
-            if (i == 8 - 1 && j == 3 || i == 8 - 1 && j == 6)
+            if ((i == 8 - 1 && j == 3) || (i == 8 - 1 && j == 6))
                 board[i][j] = 'B';
             if (i == 8 - 1 && j == 4)
                 board[i][j] = 'Q';
@@ -60,10 +60,23 @@ void startboard(char board[][9], int n)
         }
 }
 
+void printboard(char board[9][9], int n)
+{
+    int i, j;
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < n; j++)
+            printf("%c ", board[i][j]);
+        printf("\n");
+    }
+    printf("\n");
+}
+
 int main()
 {
-    int n=9;
+    int n = 9;
     char board[9][9];
+    startboard(board, n);
+    printboard(board, n);
     system("PAUSE");
     return 0;
 }
