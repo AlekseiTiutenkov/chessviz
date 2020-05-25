@@ -1,2 +1,4 @@
-main.o: main.c
-	gcc -Wall -o main main.c
+main: main.c
+	gcc -Wall -Werror -o main main.c
+clean:
+	rm *.o
