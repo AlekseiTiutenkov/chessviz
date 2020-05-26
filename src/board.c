@@ -1,9 +1,7 @@
 #include "board.h"
+#include "printboard.h"
 #include <stdio.h>
 #include <stdlib.h>
-void startboard(char board[][9], int n);
-char WhPesh(char board[][9], int n, char hod[10]);
-char BlPesh(char board[][9], int n, char hod[10]);
 
 void startboard(char board[][9], int n)
 {
@@ -121,4 +119,28 @@ char BlPesh(char board[][9], int n, char hod[10])
     }
     printf("\n");
     return 0;
+}
+
+int Queue(int k, char board[9][9], char boardtemp[9][9], char hod[10], int n)
+{
+    int i, j, f = 0, t = 0;
+    t = k;
+    for (i = 0; i < 8; i++) {
+        for (j = 1; j < 9; j++) {
+            if (boardtemp[i][j] != board[i][j]) {
+                f++;
+            }
+        }
+    }
+    if (f > 0)
+        k++;
+    for (i = 0; i < n; i++)
+        hod[i] = '\0';
+    if (f == 0) {
+        printf("Incorrect hod\n");
+        printboard(board, n);
+        return t;
+    }
+    f = 0;
+    return k;
 }
