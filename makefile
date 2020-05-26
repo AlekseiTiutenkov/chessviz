@@ -14,5 +14,8 @@ build/board.o: src/board.c
 build/printboard.o: src/printboard.c
 	gcc -Wall -Werror -c src/printboard.c -o build/printboard.o
 
+.PHONY: clean
+
+
 clean:
 	rm -rf build/*.o
