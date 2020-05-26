@@ -99,6 +99,36 @@ char WhPesh(char board[][9], int n, char hod[10])
     return 0;
 }
 
+char BlPesh(char board[][9], int n, char hod[10])
+{
+    int i, k = 0, t, t1, p1, p2;
+    for (i = 1; i < n; i++)
+        if (hod[0] == board[8][i])
+            t = i;
+
+    for (i = 1; i < n; i++)
+        if (hod[3] == board[8][i])
+            t1 = i;
+
+    p1 = 8 - (hod[1] - 48);
+    p2 = 8 - (hod[4] - 48);
+
+    if (board[p2][t1] == '\0') {
+        for (p1--; p1 >= p2; p1--)
+            if (board[p1][t] != '\0')
+                k++;
+        if ((hod[4] - hod[1] > 2) || (board[board[0][0] - hod[1]][t] != 'p')
+            || (hod[0] != hod[3])|| (k != 0))
+            printf("Incorrect hod \n");
+        else {
+            board[board[0][0] - hod[1]][t] = '\0';
+            board[board[0][0] - hod[1] - (hod[4] - hod[1])][t] = 'p';
+        }
+    }
+    printf("\n");
+    return 0;
+}
+
 int main()
 {
     int n = 9, k = 3, p1 = 0, t = 0, f = 0, i , j;
