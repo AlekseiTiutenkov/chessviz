@@ -111,7 +111,7 @@ char BlPesh(char board[][9], int n, char hod[10])
         for (p1--; p1 >= p2; p1--)
             if (board[p1][t] != '\0')
                 k++;
-        if ((hod[4] - hod[1] > 2) || (board[board[0][0] - hod[1]][t] != 'p')
+          if ((hod[1] - hod[4] > 2) || (board[board[0][0] - hod[1]][t] != 'p')
             || (hod[0] != hod[3]) || (k != 0)) {
             printf("Incorrect hod \n");
             return 1;
