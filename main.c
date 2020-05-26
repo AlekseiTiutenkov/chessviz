@@ -181,6 +181,53 @@ while (1) {
                 printboard(board, n);
             }
         }
+ if (k % 2 == 0) {
+            printf("Black turn. Enter hod: ");
+	    scanf("%s", hod);
+            if (hod[0] == 'a' || hod[0] == 'b' || hod[0] == 'c' || hod[0] == 'd'
+                || hod[0] == 'e' || hod[0] == 'f' || hod[0] == 'g'
+                || hod[0] == 'h') {
+		    if (hod[5] != '\0')
+                    continue;
+                f = 0;
+                for (i = 0; i < 8; i++) {
+                    for (j = 1; j < 9; j++) {
+                        boardtemp[i][j] = board[i][j];
+                    }
+                }
+                for (i = 1; i < n; i++)
+                    if (hod[0] == board[8][i])
+                        t = i;
+
+                p1 = 8 - (hod[1] - 48);
+
+                if (board[p1][t] == 'p') {
+                    BlPesh(board, n, hod);
+                    printboard(board, n);
+                }
+
+                for (i = 0; i < 8; i++) {
+                    for (j = 1; j < 9; j++) {
+                        if (boardtemp[i][j] != board[i][j]) {
+                            f++;
+                        }
+                    }
+                }
+                if (f > 0)
+                    k++;
+                for (i = 0; i < n; i++)
+                    hod[i] = '\0';
+                if (f == 0) {
+                    printf("Incorrect hod\n");
+                    printboard(board, n);
+                }
+                f = 0;
+
+            } else {
+                printf("Incorrect hod\n");
+                printboard(board, n);
+            }
+        }
     }
     system("PAUSE");
     return 0;
