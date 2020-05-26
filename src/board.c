@@ -138,7 +138,6 @@ int Queue(int k, char board[9][9], char boardtemp[9][9], char hod[10], int n)
         hod[i] = '\0';
     if (f == 0) {
         printf("Incorrect hod\n");
-        printboard(board, n);
         return t;
     }
     f = 0;
