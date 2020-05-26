@@ -81,11 +81,13 @@ char WhPesh(char board[][9], int n, char hod[10])
             if (board[p1][t] != '\0')
                 k++;
         if ((hod[4] - hod[1] > 2) || (board[board[0][0] - hod[1]][t] != 'P')
-            || (hod[0] != hod[3]) || (k != 0))
+            || (hod[0] != hod[3]) || (k != 0)) {
             printf("Incorrect hod \n");
-        else {
+            return 1;
+        } else {
             board[board[0][0] - hod[1]][t] = '\0';
             board[board[0][0] - hod[1] - (hod[4] - hod[1])][t] = 'P';
+            return 2;
         }
     }
     return 0;
@@ -110,36 +112,45 @@ char BlPesh(char board[][9], int n, char hod[10])
             if (board[p1][t] != '\0')
                 k++;
         if ((hod[4] - hod[1] > 2) || (board[board[0][0] - hod[1]][t] != 'p')
-            || (hod[0] != hod[3]) || (k != 0))
+            || (hod[0] != hod[3]) || (k != 0)) {
             printf("Incorrect hod \n");
-        else {
-            board[board[0][0] - hod[1]][t] = '\0';
-            board[board[0][0] - hod[1] - (hod[4] - hod[1])][t] = 'p';
-        }
-    }
-    printf("\n");
-    return 0;
-}
-
-int Queue(int k, char board[9][9], char boardtemp[9][9], char hod[10], int n)
-{
-    int i, j, f = 0, t = 0;
-    t = k;
-    for (i = 0; i < 8; i++) {
-        for (j = 1; j < 9; j++) {
-            if (boardtemp[i][j] != board[i][j]) {
-                f++;
+            return 1;
+            {
+                else
+                {
+                    board[board[0][0] - hod[1]][t] = '\0';
+                    board[board[0][0] - hod[1] - (hod[4] - hod[1])][t] = 'p';
+                    return 2;
+                }
             }
+            printf("\n");
+            return 0;
         }
-    }
-    if (f > 0)
-        k++;
-    for (i = 0; i < n; i++)
-        hod[i] = '\0';
-    if (f == 0) {
-        printf("Incorrect hod\n");
-        return t;
-    }
-    f = 0;
-    return k;
-}
+
+        int Queue(
+                int k,
+                char board[9][9],
+                char boardtemp[9][9],
+                char hod[10],
+                int n)
+        {
+            int i, j, f = 0, t = 0;
+            t = k;
+            for (i = 0; i < 8; i++) {
+                for (j = 1; j < 9; j++) {
+                    if (boardtemp[i][j] != board[i][j]) {
+                        f++;
+                    }
+                }
+            }
+            if (f > 0)
+                k++;
+            for (i = 0; i < n; i++)
+                hod[i] = '\0';
+            if (f == 0) {
+                printf("Incorrect hod\n");
+                return t;
+            }
+            f = 0;
+            return k;
+        }
