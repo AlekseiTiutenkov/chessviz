@@ -2,16 +2,16 @@ all: main
 
 main: bin/main
 
-test:bin/main-test
+test:bin/maintest
 
 bin/main: build/main.o build/board.o build/printboard.o
 	gcc -Wall -Werror build/main.o build/board.o build/printboard.o -o bin/main
 
-bin/main-test: build/test/main-test.o build/board.o build/printboard.o
-	gcc build/test/main-test.o  build/board.o build/printboard.o -o bin/main-test
+bin/maintest: build/test/maintest.o build/board.o build/printboard.o
+	gcc build/test/maintest.o  build/board.o build/printboard.o -o bin/maintest
 
-build/test/main-test.o: test/main-test.c
-	gcc -I thirdparty -I src -c test/main-test.c -o build/test/main-test.o
+build/test/maintest.o: test/maintest.c
+	gcc -I thirdparty -I src -c test/maintest.c -o build/test/maintest.o
 
 build/main.o: src/main.c
 	gcc -I includes -Wall -lncurses -ltinfo -Werror -c src/main.c -o build/main.o
