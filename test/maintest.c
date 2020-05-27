@@ -70,6 +70,14 @@ CTEST(BlackPawn, IncorrectMove2)
     ASSERT_EQUAL(0, result);
 }
 
+CTEST(Queue, HaveNoDiff)
+{
+    startboard(board, n);
+    startboard(boardtemp, n);
+    int result = Queue(3, board, boardtemp, hod, n);
+    ASSERT_EQUAL(3, result);
+}
+
 CTEST(startboard, AccuracyofFilling)
 {
     int result;
