@@ -24,6 +24,5 @@ build/printboard.o: src/printboard.c
 
 .PHONY: clean
 
-
 clean:
 	rm -rf build/*.o

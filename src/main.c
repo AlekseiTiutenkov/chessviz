@@ -33,7 +33,9 @@ int main()
                     WhPesh(board, n, hod);
                     printboard(board, n);
                 }
+
                 k = Queue(k, board, boardtemp, hod, n);
+
             } else {
                 printf("Incorrect hod\n");
                 printboard(board, n);
@@ -64,7 +66,9 @@ int main()
                     BlPesh(board, n, hod);
                     printboard(board, n);
                 }
+
                 k = Queue(k, board, boardtemp, hod, n);
+
             } else {
                 printf("Incorrect hod\n");
                 printboard(board, n);

@@ -33,7 +33,7 @@ void startboard(char board[][9], int n)
                 board[i][7] = 'g';
                 board[i][8] = 'h';
             }
-            // BOLSHIE
+
             if (i == 8 - 7)
                 board[i][j] = 'p';
             if ((i == 8 - 8 && j == 1) || (i == 8 - 8 && j == 8))
@@ -46,7 +46,7 @@ void startboard(char board[][9], int n)
                 board[i][j] = 'q';
             if (i == 8 - 8 && j == 5)
                 board[i][j] = 'k';
-            // MELKIE
+
             if (i == 8 - 2)
                 board[i][j] = 'P';
             if ((i == 8 - 1 && j == 1) || (i == 8 - 1 && j == 8))
@@ -92,7 +92,6 @@ char WhPesh(char board[][9], int n, char hod[10])
     }
     return 0;
 }
-
 char BlPesh(char board[][9], int n, char hod[10])
 {
     int i, k = 0, t, t1, p1, p2;
@@ -111,7 +110,7 @@ char BlPesh(char board[][9], int n, char hod[10])
         for (p1--; p1 >= p2; p1--)
             if (board[p1][t] != '\0')
                 k++;
-          if ((hod[1] - hod[4] > 2) || (board[board[0][0] - hod[1]][t] != 'p')
+        if ((hod[1] - hod[4] > 2) || (board[board[0][0] - hod[1]][t] != 'p')
             || (hod[0] != hod[3]) || (k != 0)) {
             printf("Incorrect hod \n");
             return 1;
@@ -124,7 +123,6 @@ char BlPesh(char board[][9], int n, char hod[10])
     printf("\n");
     return 0;
 }
-
 int Queue(int k, char board[9][9], char boardtemp[9][9], char hod[10], int n)
 {
     int i, j, f = 0, t = 0;

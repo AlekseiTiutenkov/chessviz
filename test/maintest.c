@@ -1,6 +1,8 @@
 #define CTEST_MAIN
+
 #include "../src/board.h"
 #include <ctest.h>
+
 char hod[10], board[9][9], boardtemp[9][9];
 int n = 9;
 CTEST(WhitePawn, CorrectMove1)
@@ -67,9 +69,8 @@ CTEST(BlackPawn, IncorrectMove2)
     hod[3] = 'e';
     hod[4] = '4';
     int result = BlPesh(board, n, hod);
-    ASSERT_EQUAL(0, result);
+    ASSERT_EQUAL(1, result);
 }
-
 CTEST(Queue, HaveNoDiff)
 {
     startboard(board, n);
@@ -77,7 +78,6 @@ CTEST(Queue, HaveNoDiff)
     int result = Queue(3, board, boardtemp, hod, n);
     ASSERT_EQUAL(3, result);
 }
-
 CTEST(Queue, HaveDiff)
 {
     startboard(board, n);
@@ -96,7 +96,6 @@ CTEST(Queue, HaveDiff)
     int result = Queue(3, board, boardtemp, hod, n);
     ASSERT_EQUAL(4, result);
 }
-
 CTEST(startboard, AccuracyofFilling)
 {
     int result;
@@ -121,7 +120,6 @@ CTEST(startboard, AccuracyofFilling)
         result = 0;
     ASSERT_EQUAL(0, result);
 }
-
 int main(int argc, const char** argv)
 {
     return ctest_main(argc, argv);
